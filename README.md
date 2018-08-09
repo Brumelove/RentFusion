@@ -1,0 +1,1 @@
+This is a Movie Rating app created with Bootstrap.
