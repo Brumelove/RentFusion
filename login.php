@@ -70,7 +70,7 @@
             if(isset($_SESSION['id'])){
               echo '
                   <li class="nav-item">
-                    <form action="index.php" method="post">
+                    <form action="welcome.php" method="post">
                     <button type="submit" class="btn btn-primary" name="logout">Logout</button>
                     </form>
                   </li>
