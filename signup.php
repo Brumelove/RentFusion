@@ -132,27 +132,28 @@
         <!--Grid column-->
         <div class="col-lg-8">
         <!-- Form contact -->
-        <?php echo $success ?>
-        <?php echo $failure ?>
-        <?php echo $acctExists ?>
-                                
+<!--        --><?php //echo $success ?>
+<!--        --><?php //echo $failure ?>
+<!--        --><?php //echo $acctExists ?>
+        
+        <?php if(isset($failure)) echo $failure; ?>
         <form class="p-5" action = "signup.php" method = "post">
           <div class="md-form form-sm" id="testoo"> <span class="orange-text" data-feather="user"></span>
             <input type="text" id="name" name="username" class="form-control form-control-sm inp" placeholder="Username">
-            <span id="name_error"><?php echo $userErr ?></span>
+<!--            <span id="name_error">--><?php //echo $userErr ?><!--</span>-->
           </div>
         <div class="md-form form-sm em" id="goody"> <span class="orange-text" data-feather="at-sign"></span>
           <input type="email" id="email" name="email" class="form-control form-control-sm ema inp" placeholder="Email Address">
           <!--<div class="suc_err_div"></div>-->
-          <span id="email_error"><?php echo $emailErr ?></span>
+<!--          <span id="email_error">--><?php //echo $emailErr ?><!--</span>-->
         </div>
         <div class="md-form form-sm" id="testoo"> <span class="orange-text" data-feather="user"></span>
             <input type="password" id="name" name="password" class="form-control form-control-sm inp" placeholder="Password">
-            <span id="name_error"><?php echo $pwdErr ?></span>
+<!--            <span id="name_error">--><?php //echo $pwdErr ?><!--</span>-->
         </div>
         <div class="md-form form-sm" id="testoo"> <span class="orange-text" data-feather="user"></span>
             <input type="password" id="name" name="confirm_password" class="form-control form-control-sm inp" placeholder="Password">
-            <span id="name_error"><?php echo $pwd2Err ?></span>
+<!--            <span id="name_error">--><?php //echo $pwd2Err ?><!--</span>-->
         </div>
                                         
         <div class="mt-4 text-center">

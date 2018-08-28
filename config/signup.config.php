@@ -49,29 +49,30 @@
         }
 
         #if input is clean
-        if($usernameErr==""&&$emailErr==""&&$pwdErr==""&&$pwd2Err==""){
+        if($userErr==""&&$emailErr==""&&$pwdErr==""&&$pwd2Err==""){
             #make input safe for database
             $username = mysqli_real_escape_string($conn, $username);
             $email = mysqli_real_escape_string($conn, $email);
             $pwd = mysqli_real_escape_string($conn, $pwd);
 
             #query the database to know if user exists
-            $sql = "SELECT * FROM users WHERE u_user = '$username'";
+            $sql = "SELECT * FROM users WHERE username = '$username'";
             $result = mysqli_query($conn, $sql);
             if(mysqli_num_rows($result) < 1){
                 #hash the password before saving input into database
                 $hashed = password_hash($pwd, PASSWORD_DEFAULT);
 
                 #write sql to save to database
-                $sql = "INSERT INTO users (u_user, u_email, u_pwd) VALUES ('$username', '$email', '$hashed')";
+                $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$hashed')";
+                echo $sql;
                 $result = mysqli_query($conn, $sql);
-
+                echo $result;
                 #check to see if it was successfully inputed to the database then echo success message
                 if($result){
                     $success = "Sign-up successful.";
-                    header("Location: index.php");
+                    header("Location: welcome.php");
                 }else{
-                    $failure = "Sign-up unsuccessful, please try again.";
+                    $failure = "Sign-up unsuccessful, please try again.\r\n".$conn->error;
                 }
             }else{
                 $acctExists = "User already has an account. <a href='login.php'>Login</a>";

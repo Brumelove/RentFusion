@@ -1,11 +1,11 @@
 <?php
-//namespace Model;
-/*class dbConfig{
+/* //namespace Model;
+class dbConfig{
 
     protected $host = "localhost";
-    protected $dbname = "";
+    protected $dbname = "empmodel";
     protected $user = "root";
-    protected $pass = "";
+    protected $pass = "556389929496";
     protected $DBH;
 
     function __construct() {
@@ -37,22 +37,25 @@
             $this->DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $this->DBH;
     }
-} */
+} 
+*/
 
 
-
-    #connect to database 
+   #connect to database 
     $hostname = "db4free.net";
     $username = "brumelove";
     $password = "brumelovee";
     $dbname = "brumelove";
 
+  
+
     $conn = mysqli_connect($hostname, $username, $password, $dbname);
 
-    if(!conn){
-        echo "Connection failed";
-    }else{
-        echo "Connection successful";
+    if(!$conn){
+        die("Connection failed");
     }
-
+    
+   
+    
+    
 ?>

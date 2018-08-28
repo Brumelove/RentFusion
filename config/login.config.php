@@ -1,5 +1,6 @@
 <?php
 	session_start();
+    
 	include "dbConfig.php";
 
 	if(isset($_POST['login'])){
@@ -30,7 +31,7 @@
 
         if($userErr == "" && $pwdErr == ""){
             #check if user is in database
-            $sql = "SELECT * FROM users WHERE u_user = '$username'";
+            $sql = "SELECT * FROM users WHERE username = '$username'";
             $result = mysqli_query($conn, $sql);
             if(mysqli_num_rows($result) < 1){
                 $failure = "User doesn't exist. <a href='signup.php'>Sign-up</a>";
@@ -45,18 +46,20 @@
 
                 if($row){
                     #check if password matches the database
-                    $checkHashed = password_verify($pwd, $row['u_pwd']);
+                    $checkHashed = password_verify($pwd, $row['password']);//u_pwd
+
+                    echo $checkHashed;
 
                     if($checkHashed === TRUE){
                         $_SESSION['id'] = $row['id'];
-                        $_SESSION['user'] = $row['u_user'];
-                        $_SESSION['email'] = $row['u_email'];
+                        $_SESSION['user'] = $row['username'];
+                        $_SESSION['email'] = $row['email'];
                         $success = "Login successful! Go <a href='index.php'>Home</a>";
                         echo $_SESSION['user'];
-                        header("Location: index.php");
+                        header("Location: welcome.php");
                 
                     }elseif($checkHashed === FALSE){
-                        $pwdErr= "Password is incorrect";
+                        $pwdErr= "Password is incorrect" .$checkHashed;
                     }
                 }
             }

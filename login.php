@@ -1,5 +1,5 @@
 <?php 
-  session_start();
+//  session_start();
 ?>
 <?php
 
@@ -70,7 +70,7 @@
             if(isset($_SESSION['id'])){
               echo '
                   <li class="nav-item">
-                    <form action="welcome.php" method="post">
+                    <form action="login.php" method="post">
                     <button type="submit" class="btn btn-primary" name="logout">Logout</button>
                     </form>
                   </li>
@@ -133,15 +133,15 @@
         <!-- Form contact -->
                                 
         <form class="p-5" action = "login.php" method = "post">
-          <?php echo $success ?>
-          <?php echo $failure ?>
+<!--          --><?php //echo $success ?>
+        <?php if (isset($failure)) echo $failure; ?>
           <div class="md-form form-sm" id="testoo"> <span class="orange-text" data-feather="user"></span>
             <input type="text" id="name" name="username" class="form-control form-control-sm inp" placeholder="Username">
-            <span id="name_error"><?php echo $userErr ?></span>
+<!--            <span id="name_error">--><?php //echo $userErr ?><!--</span>-->
           </div>
         <div class="md-form form-sm" id="testoo"> <span class="orange-text" data-feather="user"></span>
             <input type="password" id="name" name="password" class="form-control form-control-sm inp" placeholder="Password">
-            <span id="name_error"><?php echo $pwdErr ?></span>
+<!--            <span id="name_error">--><?php //echo $pwdErr ?><!--</span>-->
         </div>
         <div class="mt-4 text-center">
           <button class="btn btn-sm btn-success BTN" name = "login" id="submitForm"> Login</button>
